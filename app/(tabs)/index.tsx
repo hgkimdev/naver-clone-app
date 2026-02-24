@@ -30,7 +30,7 @@ const HomeScreen = () => {
           if (request.url != null && request.url.startsWith("https://")) {
             router.navigate({
               pathname: "browser",
-              params: { initialURL: request.url },
+              params: { initialUrl: request.url },
             });
             return false;
           }
