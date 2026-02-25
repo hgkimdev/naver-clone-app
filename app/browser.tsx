@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import React, { useState, useMemo } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, codegenNativeCommands } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -59,7 +59,13 @@ const BrowserScreen = () => {
         onNavigationStateChange={(event) => {
           setUrl(event.url);
         }}
-        onLoadProgress={(event) => {}}
+        onLoadProgress={(event) => {
+          console.log("onLoadProgress", event.nativeEvent.progress);
+          progressAnimatedValue.setValue(event.nativeEvent.progress);
+        }}
+        onLoadEnd={() => {
+          console.log("onLoadEnd");
+        }}
       />
     </SafeAreaView>
   );
