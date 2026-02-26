@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
-import React, { useState, useMemo } from "react";
-import { StyleSheet, View, Text, codegenNativeCommands } from "react-native";
+import React, { useState, useMemo, useRef } from "react";
+import { StyleSheet, View, Text, Animated } from "react-native";
 import { WebView } from "react-native-webview";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -49,7 +49,7 @@ const BrowserScreen = () => {
           style={[
             styles.loadingBar,
             {
-              with: "50%",
+              width: "50%",
             },
           ]}
         />
