@@ -49,7 +49,10 @@ const BrowserScreen = () => {
           style={[
             styles.loadingBar,
             {
-              width: "50%",
+              width: progressAnimatedValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: ["0%", "100%"],
+              }),
             },
           ]}
         />
@@ -65,6 +68,7 @@ const BrowserScreen = () => {
         }}
         onLoadEnd={() => {
           console.log("onLoadEnd");
+          progressAnimatedValue.setValue(0);
         }}
       />
     </SafeAreaView>
